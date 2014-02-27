@@ -73,5 +73,11 @@ public class BookShop {
           bst.preorder();          
           bst.inorder();
       }  
+      
+       public boolean UserSearch(String bname){//Search Data from BST
+            boolean b=false;
+            b=bst.search(bname);
+            return b;
+           } 
     
 }

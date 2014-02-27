@@ -86,4 +86,25 @@ package bookshop;
          }
      }   
      
+     public boolean search(String val){
+         return search(root, val);
+     }
+    
+     private boolean search(BSTNode r, String val){
+         boolean found = false;
+         while ((r != null) && !found){
+             String rval = r.getBname();
+             int c=val.compareTo(rval);
+             if (c < 0)
+                 r = r.getLeft();
+             else if (val.compareTo(rval) > 0)
+                 r = r.getRight();
+             else{
+                 found = true;
+                 break;
+             }
+             found = search(r, val);
+         }
+         return found;
+     }
  }
