@@ -64,4 +64,14 @@ public class BookShop {
         }                   
     } 
     
+      public void CountNodes(){  
+          bst.countNodes();
+      }  
+      
+      public void TreeTrevalsal(){         
+          bst.postorder();           
+          bst.preorder();          
+          bst.inorder();
+      }  
+    
 }
