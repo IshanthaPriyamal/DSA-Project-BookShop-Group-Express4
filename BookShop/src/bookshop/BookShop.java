@@ -79,5 +79,14 @@ public class BookShop {
             b=bst.search(bname);
             return b;
            } 
-    
+       
+       public String UserDelete(String bname){//Delete data from BST
+            String s=null;                 
+            s=bst.delete(bname);//Delete the Node 
+            if(s.equals("OK")){
+                System.out.println("After Deleting, postorder..........");
+                bst.postorder();//Print Postorder After Deleting
+            }      
+         return s;
+       }
 }

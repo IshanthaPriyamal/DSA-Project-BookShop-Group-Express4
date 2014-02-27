@@ -107,4 +107,65 @@ package bookshop;
          }
          return found;
      }
+     
+      public boolean isEmpty(){//check tree is empty
+         return root == null;
+     }
+     
+      public String delete(String k){
+         String r=null;
+         if (isEmpty())
+             //System.out.println("Tree Empty");
+             r="E";
+         else if (search(k) == false)
+             //System.out.println("Sorry "+ k +" is not present");
+             r="NO";
+         else{
+             root = delete(root, k);
+            // System.out.println(k+ " deleted from the tree");
+             r="OK";
+         }
+         return r;
+     }
+     
+     private BSTNode delete(BSTNode root, String k) {
+         BSTNode p, p2, n;
+              
+         if (root.getBname().equals(k)){
+             BSTNode lt, rt;
+             lt = root.getLeft();
+             rt = root.getRight();
+             if (lt == null && rt == null)
+                 return null;
+             else if (lt == null){
+                 p = rt;
+                 return p;
+             }
+             else if (rt == null){
+                 p = lt;
+                 return p;
+             }
+             else{
+                 p2 = rt;
+                 p = rt;
+                 while (p.getLeft() != null)
+                     p = p.getLeft();
+                 p.setLeft(lt);
+                 return p2;
+             }
+         }
+         int c=k.compareTo(root.getBname());
+         
+         if (c <0){
+             n = delete(root.getLeft(), k);
+             root.setLeft(n);
+         }
+         else{
+             n = delete(root.getRight(), k);
+             root.setRight(n);             
+         }
+         return root;
+     }
  }
+ 
+ 
