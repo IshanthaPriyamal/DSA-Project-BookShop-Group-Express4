@@ -51,12 +51,13 @@ public class BookShop {
                 bst.insert(bn,an,sn,isb); //Create BST from Excel file data          
             }
             workbook.close();         
-            
+            bst.postorder();   
             }
             x=1;
             System.out.println("");  
             bst.insert(bname, aname, sname, isbn);// Insert data to BST
-           
+            System.out.println("After Inserting data, postorder");  
+            bst.postorder();   
             System.out.println("");  
         } 
         catch (IOException | BiffException ex) {
