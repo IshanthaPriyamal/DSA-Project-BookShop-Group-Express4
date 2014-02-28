@@ -76,6 +76,7 @@ public class BookShop {
       
        public boolean UserSearch(String bname){//Search Data from BST
             boolean b=false;
+            bst.preorder();   
             b=bst.search(bname);
             return b;
            } 
